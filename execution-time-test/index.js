@@ -8,7 +8,7 @@ test();
 
 async function test() {
   await mpaTest();
-  console.log("\n");
+  console.log("\n\n");
   await spaTest();
   driver.quit();
 }
@@ -53,7 +53,7 @@ async function mpaTest() {
 
   start = parseFloat(Date.now());
   await driver
-    .findElement(By.className(`btn btn-primary btn-lg mt-2 mb-3`))
+    .wait(until.elementLocated(By.name("detail-berita")), 10000)
     .click();
   finish = parseFloat(Date.now());
   console.log(`Load time halaman detail berita : ${finish - start} ms`);
