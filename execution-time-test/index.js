@@ -16,15 +16,17 @@ async function test() {
 async function mpaTest() {
   console.log(`*****Starting Multi Page Application Test*****`);
   let totalTime = 0;
-  let mpaBaseUrl = "http://localhost:8000/";
+  let mpaBaseUrl = "https://mpa.nusaakses.net";
 
   let start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.get(mpaBaseUrl);
   let finish = parseFloat(Date.now());
   console.log(`Load time halaman home : ${finish - start} ms`);
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Perusahaan")).click();
   await driver.findElement(By.linkText("Profile Perusahaan")).click();
   finish = parseFloat(Date.now());
@@ -32,6 +34,7 @@ async function mpaTest() {
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Perusahaan")).click();
   await driver.findElement(By.linkText("Sejarah Perusahaan")).click();
   finish = parseFloat(Date.now());
@@ -39,6 +42,7 @@ async function mpaTest() {
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Layanan")).click();
   await driver.findElement(By.className("dropdown-item mt-2")).click();
   finish = parseFloat(Date.now());
@@ -46,12 +50,14 @@ async function mpaTest() {
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Berita")).click();
   finish = parseFloat(Date.now());
   console.log(`Load time halaman berita : ${finish - start} ms`);
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver
     .wait(until.elementLocated(By.name("detail-berita")), 10000)
     .click();
@@ -68,12 +74,14 @@ async function spaTest() {
   let totalTime = 0;
 
   let start = parseFloat(Date.now());
-  await driver.get("http://localhost:3000/");
+  await driver.manage().window().fullscreen();
+  await driver.get("https://spa.nusaakses.net");
   let finish = parseFloat(Date.now());
   console.log(`Load time halaman home : ${finish - start} ms`);
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Perusahaan")).click();
   await driver.findElement(By.linkText("Profile Perusahaan")).click();
   finish = parseFloat(Date.now());
@@ -81,12 +89,14 @@ async function spaTest() {
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Sejarah Perusahaan")).click();
   finish = parseFloat(Date.now());
   console.log(`Load time halaman sejarah perusahaan : ${finish - start} ms`);
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Layanan")).click();
   await driver.findElement(By.name("service")).click();
   finish = parseFloat(Date.now());
@@ -94,12 +104,14 @@ async function spaTest() {
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver.findElement(By.linkText("Berita")).click();
   finish = parseFloat(Date.now());
   console.log(`Load time halaman berita : ${finish - start} ms`);
   totalTime += finish - start;
 
   start = parseFloat(Date.now());
+  await driver.manage().window().fullscreen();
   await driver
     .wait(until.elementLocated(By.name("detail-berita")), 10000)
     .click();
